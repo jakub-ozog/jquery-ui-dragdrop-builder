@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DragDrop Builder</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script  src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script  src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="builder">
+        <div class="builder__canvas">
+            <div id="droppable" class="ui-widget-header">
+                <p>Drop here</p>
+            </div>
+        </div>
+
+        <div class="builder__fieldsContainer">
+            <div id="draggable" class="ui-widget-content">
+                <p>Drag me to my target</p>
+            </div>
+
+            <div class="builder__fields"></div>
+            <div class="builder__components"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $( function() {
+        $( "#draggable" ).draggable();
+        $( "#droppable" ).droppable({
+            drop: function( event, ui ) {
+                $( this )
+                    .addClass( "ui-state-highlight" )
+                    .find( "p" )
+                    .html( "Dropped!" );
+            }
+        });
+    } );
+</script>
+
+
+</body>
+</html>
