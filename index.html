@@ -7,23 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DragDrop Builder</title>
     <link rel="stylesheet" href="style/style.css">
-    <script  src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script  src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 </head>
 <body>
 <div class="container">
 
-    <div class="builder">
+    <div class="builder" id="containment-wrapper">
         <div class="builder__canvas">
             <div id="droppable" class="ui-widget-header">
-                <p>Drop here</p>
+                <p>Row</p>
             </div>
         </div>
 
         <div class="builder__fieldsContainer">
-            <div id="draggable" class="ui-widget-content">
-                <p>Drag me to my target</p>
+            <div id="draggable3" class="ui-widget-content">
+                <p>Field</p>
+            </div>
+
+            <div id="draggable4" class="ui-widget-content">
+                <p>Field</p>
+            </div>
+            <div id="draggable5" class="ui-widget-content">
+                <p>Field</p>
             </div>
 
             <div class="builder__fields"></div>
@@ -32,19 +39,46 @@
     </div>
 </div>
 
-
 <script>
-    $( function() {
-        $( "#draggable" ).draggable();
-        $( "#droppable" ).droppable({
-            drop: function( event, ui ) {
-                $( this )
-                    .addClass( "ui-state-highlight" )
-                    .find( "p" )
-                    .html( "Dropped!" );
+    $(function () {
+        $("#draggable").draggable();
+        $("#droppable").droppable({
+            drop: function (event, ui) {
+                $(this)
+                    .addClass("ui-state-highlight")
+                    .find("p")
+                    .html("Dropped!")
+                    .append('.')
             }
         });
-    } );
+    });
+
+    $(function () {
+        $("#draggable3").draggable({
+            containment: "#containment-wrapper",
+            scroll: false,
+            cursor: "grabbing",
+            opacity: 0.5,
+            snap: true,
+            snapTolerance: 20,
+        });
+        $("#draggable4").draggable({
+            containment: "#containment-wrapper",
+            scroll: false,
+            cursor: "grabbing",
+            opacity: 0.5,
+            snap: true,
+            snapTolerance: 20,
+        });
+        $("#draggable5").draggable({
+            containment: "#containment-wrapper",
+            scroll: false,
+            cursor: "grabbing",
+            opacity: 0.5,
+            snap: true,
+            snapTolerance: 20,
+        });
+    });
 </script>
 
 

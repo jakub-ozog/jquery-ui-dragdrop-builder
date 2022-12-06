@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Linux Biolinum G", sans-serif;
 }
 
 .container {
@@ -31,27 +32,40 @@
   position: absolute;
   top: 0;
   right: 0;
+  margin-left: 0.5rem;
   min-height: 100%;
   min-width: 30%;
   background-color: #fff;
 }
 
-#draggable {
-  background-color: bisque;
+#draggable3, #draggable4, #draggable5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #c0c0c0;
   width: 100px;
-  height: 100px;
+  height: 50px;
   padding: 0.5em;
   float: left;
-  margin: 10px 10px 10px 0;
+  margin: 1rem;
+  border-radius: 5px;
+  user-select: none;
+}
+#draggable3 p, #draggable4 p, #draggable5 p {
+  margin: 0 auto;
+  text-align: center;
 }
 
 #droppable {
-  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: dimgrey;
-  width: 150px;
-  height: 150px;
+  width: 70%;
+  height: 50px;
   padding: 0.5em;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .ui-state-highlight {
